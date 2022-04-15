@@ -13,6 +13,10 @@ client.onPost = async (post) => {
     }, 2000)
   }
 
+  if (post.text.match("$connect")) {
+    post.connect()
+  }
+
   const resetTimeout = await post.connect(60000, () => {
     post.onChat = noop; //replace post.onChat to free up memory
     if (post.text.match("!startab")) {

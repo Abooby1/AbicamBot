@@ -1,4 +1,4 @@
-import {getDataForUserId} from "../../database.js"
+import {getUserDataManager} from "../../database.js"
 
 const RankInfo = {
   names: ["rank", "rinfo", "rankinfo"],
@@ -8,4 +8,13 @@ const RankInfo = {
   description: "I will chat what rank you are"
 };
 
-export {RankInfo};
+const CheckRank = {
+  names: ["check.rank", "checkrank"],
+  func: async ({chat, args: [userid]})=> {
+    const data = await getUserDataManager(userid)
+    chat.reply(`The rank of ${userid} is ${data.value.rank}`)
+  },
+  description: "Check the rank of someone with their userid"
+}
+
+export {RankInfo, CheckRank};

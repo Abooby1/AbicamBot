@@ -11,7 +11,7 @@ const Post = {
       }
     }
   },
-  permission: rank=>rank!=="Banned",
+  permission: rank=>rank!=="Banned" || "Bot",
   description: "Creates a post with specified message."
 };
 

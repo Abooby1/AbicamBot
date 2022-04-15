@@ -4,8 +4,8 @@ import {Work} from "./work.js"
 import {Happy} from "./happyness.js"
 import {Food} from "./food.js"
 import {Play} from "./play.js"
-import {Money/*, CheckMoney*/} from "./money.js"
-import {BuildBusi, BusiStats, BusiHire} from "./business.js"
+import {Money, CheckMoney} from "./money.js"
+import {Claim} from "./claim.js"
 
 
 export const Economy = [
@@ -18,8 +18,6 @@ export const Economy = [
   Happy,
   Play,
   Money,
-  BuildBusi,
-  BusiStats,
-  BusiHire,
-  /*CheckMoney,*/
+  Claim,
+  CheckMoney,
 ];

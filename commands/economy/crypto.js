@@ -11,20 +11,17 @@ const CryptoInfo = {
 
 const CryptoBuy = {
   names: ["crypto.buy", "cryptobuy"],
-  func: ({ chat, body, userData }) => {
-    if (body != "") {
-      if (userData.value.money >= CryptoSelling * body) {
-        setTimeout(async function () {
-          const userData = await getDataForUserId(chat.author.id);
-        }, 100)
-        userData.value.money -= CryptoSelling * body
-        userData.value.crypto += body
-        chat.reply(`You bought ${body} Crypto!`)
+  func: ({ chat, args: [amount], userData }) => {
+    if (amount != "") {
+      if (userData.value.money >= CryptoSelling * amount) {
+        userData.value.money -= CryptoSelling * amount
+        userData.value.crypto += amount
+        chat.reply(`You bought ${amount} Crypto!`)
         setTimeout(function( ) {
           userData.update()
         }, 500)
       } else {
-        chat.reply(`You dont have enough money to buy ${body} Crypto... | You need $${CryptoSelling * body} to buy that amount of Crypto`)
+        chat.reply(`You dont have enough money to buy ${amount} Crypto... | You need $${CryptoSelling * amount} to buy that amount of Crypto`)
       }
     } else {
       chat.reply("You cant buy air...")

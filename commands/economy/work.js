@@ -11,17 +11,16 @@ const Work = {
         chat.reply("You can't work for more than 30 hours and less than 1 hour!"); return; 
       }
       chat.reply(`Working for ${time} hour(s)! (You can use other commands while working!)`)
-      
       setTimeout(async function ( ) {
         if (MoneyEvent == true) {
-          const earned = time * 0.06
+          var earned = time * 0.06
           userData.value.money += earned
           if (userData.value.rank == "Premium") {
             earned += 0.02
           }
           chat.reply(`You worked for ${time} hour(s) and earned $${earned.toFixed(2)}!`)
         } else {
-          const earned = time * 0.04
+          var earned = time * 0.04
           userData.value.money += earned
           if (userData.value.rank == "Premium") {
             earned += 0.02

@@ -4,6 +4,17 @@ export function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
+export function containsObject(obj, list) {
+    var i;
+    for (i = 0; i < list.length; i++) {
+        if (list[i] === obj) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 export var ADS = [
   "Check out patreon.com/abicambot",
   "Follow @Abooby",
@@ -11,7 +22,7 @@ export var ADS = [
   "Join to get the latest severe weather: https://app.photop.live/?j=1391a410",
 ]
 
-export var CryptoSelling = 5
+var CryptoSelling = 5
 
 setInterval(function() {
   var CryptoRandom = getRandomInt(10)
@@ -30,3 +41,5 @@ setInterval(function() {
     }
   }
 }, 120000)
+
+export {CryptoSelling}

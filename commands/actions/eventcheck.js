@@ -3,7 +3,7 @@ import {EventChecker} from "../../events.js"
 const EventCheck = {
   names: ["event", "eventcheck", "event.check"],
   func: ({chat})=>{
-    chat.reply(`Currently, the  ${EventChecker} is active!`)
+    chat.reply(`Currently, the ${EventChecker} is active!`)
   },
   description: "You can check what event is active"
 };

@@ -1,7 +1,7 @@
-import {Commands} from "./commands/index.js";
+import { Commands } from "./commands/index.js";
 import { getUserDataManager } from "./database.js"
-import {PREFIX} from "./constants.js";
-import {CommandEvent} from "./events.js"
+import { PREFIX } from "./constants.js";
+import { CommandEvent } from "./events.js"
 import { getRandomInt, ADS } from "./utils.js";
 
 const commands = {};
@@ -14,8 +14,8 @@ function registerCommand(command) {
 
 Commands.forEach(registerCommand)
 
-export async function onChat(client, chat){
-  if (chat.author.id === "61c60d39e1e6417b595cfd19") return; 
+export async function onChat(client, chat) {
+  if (chat.author.id === "61c60d39e1e6417b595cfd19") return;
   if (chat.text.startsWith(PREFIX)) {
     const match = chat.text.substring(PREFIX.length).match(/([a-z0-9\.]+)(.*)/i);
     if (match) {
@@ -24,7 +24,7 @@ export async function onChat(client, chat){
       const command = commands[commandName.toLowerCase()]
       if (command) {
         const args = body.split(/\s+/);
-        const context = {client, chat, args, body, commands}
+        const context = { client, chat, args, body, commands }
         context.userData = await getUserDataManager(chat.author.id)
         if (command.permission) {
           let valid;
@@ -39,7 +39,7 @@ export async function onChat(client, chat){
           }
         }
         await command.func(context);
-        if (context.userData.value.rank != "Premium" || context.userData.value.rank != "Owner") {
+        if (context.userData.value.rank == "Normal" || "Special") {
           const random = getRandomInt(10)
           if (random == 1) {
             chat.reply("AD: " + ADS[Math.floor(Math.random() * ADS.length)])
@@ -48,7 +48,7 @@ export async function onChat(client, chat){
         if (CommandEvent == true) {
           context.userData.value.coins += 0.02
           context.userData.value.money += 0.01
-          setTimeout(function( ) {
+          setTimeout(function() {
             context.userData.update();
           }, 1000)
         }

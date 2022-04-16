@@ -24,7 +24,7 @@ const TempBan = {
   },
   description: "Temp bans someone",
   hidden: true,
-  permission: rank=>rank=="Owner" || "Mod"
+  permission: rank=>rank=="Owner" || rank == "Mod"
 };
 
 const SetMoney = {
@@ -39,7 +39,7 @@ const SetMoney = {
     chat.reply(`I set ${userid}'s money to ${data.value.money}`)
   },
   hidden: true,
-  permission: rank=>rank=="Owner" || "Mod",
+  permission: rank=>rank=="Owner" || rank == "Mod",
   description: "Sets your money."
 };
 
@@ -59,7 +59,7 @@ const ResetSubstat = {
   },
   hidden: true,
   description: "Resets a specific substat of a user to its default value.",
-  permission: rank=>rank=="Owner" || "Mod",
+  permission: rank=>rank=="Owner" || rank == "Mod",
 }
 
 const ResetData = {
@@ -82,7 +82,7 @@ const ResetData = {
   },
   hidden: true,
   description: "Resets a specific substat of a user to its default value. Note: Ranks are hard coded and cannot be reset.",
-  permission: rank=>rank=="Owner" || "Mod",
+  permission: rank=>rank=="Owner" || rank == "Mod",
 }
 
 const Test = {

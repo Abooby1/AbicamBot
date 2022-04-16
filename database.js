@@ -47,7 +47,8 @@ const specialRanks = {
 
   "615633bcf03ce145ddce4708": "Banned", //000000
   "61d6f884ae777c689f511205": "Banned",
-  "6160e942979ff73857562a19": "Banned"
+  "6160e942979ff73857562a19": "Banned",
+  "61c875e360fe4c7b88a8d071": "Banned"
 }
 
 export const defaultData = {
